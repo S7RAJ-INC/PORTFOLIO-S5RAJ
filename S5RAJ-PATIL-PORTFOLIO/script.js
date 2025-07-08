@@ -407,51 +407,19 @@ function showNotification(message, type = 'info') {
 function initResumeDownload() {
   const downloadBtn = document.querySelector('.download-btn');
   if (!downloadBtn) return;
-  
+
   downloadBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    
-    // Create a simple PDF-like content
-    const resumeContent = `
-      S5RAJ PATIL - Full Stack Developer
-      
-      Contact: s5raj.patil@email.com | +1 (555) 123-4567
-      Location: San Francisco, CA
-      
-      EXPERIENCE
-      
-      Senior Full Stack Developer (2022 - Present)
-      TechCorp Solutions
-      - Leading development of scalable web applications
-      - Managed team of 5 developers
-      - Improved performance by 40%
-      
-      Full Stack Developer (2020 - 2022)
-      Digital Innovations
-      - Developed multiple client projects
-      - Collaborated with design teams
-      
-      SKILLS
-      - Frontend: React, JavaScript, TypeScript, CSS
-      - Backend: Node.js, Python, MongoDB, PostgreSQL
-      - Cloud: AWS, Docker, CI/CD
-      
-      EDUCATION
-      B.Tech in Computer Science (2014 - 2018)
-      University of Technology
-    `;
-    
-    const blob = new Blob([resumeContent], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
+
+    // Directly trigger download of the PDF in the assets folder
+    const pdfPath = 'assets/SURAJPATIL.pdf';
     const a = document.createElement('a');
-    a.href = url;
-    a.download = 'S5RAJ_PATIL_Resume.txt';
+    a.href = pdfPath;
+    a.download = 'SURAJPATIL.pdf';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    
-    showNotification('Resume downloaded successfully!', 'success');
+    showNotification('Resume PDF downloaded successfully!', 'success');
   });
 }
 
