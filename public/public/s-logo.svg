@@ -1,0 +1,56 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF3B3B;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FF6B6B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#CC0000;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  
+  <!-- Background glow -->
+  <circle cx="50" cy="50" r="48" fill="url(#redGradient)" opacity="0.1" filter="url(#glow)"/>
+  
+  <!-- 3D Stylish S Shape with depth -->
+  <g filter="url(#shadow)">
+    <!-- Shadow/depth layer -->
+    <path d="M 68 22 Q 78 22 78 32 Q 78 40 58 44 Q 73 48 73 58 Q 73 70 55 74 Q 35 74 32 68" 
+          stroke="rgba(0,0,0,0.3)" 
+          stroke-width="9" 
+          fill="none" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          opacity="0.5"/>
+    
+    <!-- Main S shape -->
+    <path d="M 70 20 Q 80 20 80 30 Q 80 38 60 42 Q 75 46 75 56 Q 75 72 55 76 Q 35 76 30 70" 
+          stroke="url(#redGradient)" 
+          stroke-width="8" 
+          fill="none" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          filter="url(#glow)"/>
+  </g>
+  
+  <!-- Highlight accent for 3D effect -->
+  <path d="M 70 20 Q 80 20 80 30 Q 80 38 60 42" 
+        stroke="rgba(255,255,255,0.6)" 
+        stroke-width="2" 
+        fill="none" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        opacity="0.8"/>
+  
+  <!-- Accent dots -->
+  <circle cx="28" cy="22" r="3" fill="url(#redGradient)" opacity="0.8"/>
+  <circle cx="78" cy="76" r="3" fill="url(#redGradient)" opacity="0.8"/>
+</svg>
